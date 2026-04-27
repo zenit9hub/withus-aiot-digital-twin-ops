@@ -2,19 +2,25 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   lang: 'ko-KR',
-  title: 'WITHUS AIoT Digital Twin Ops',
-  description: '멀티에이전트 AI 기반 IoT 디지털트윈 설비 운영지원 시스템 공개 레퍼런스',
+  title: 'WITHUS AIoT Digital Twin Ops Handbook',
+  description: '대학생 멘토링을 위한 AIoT 디지털 트윈 팩토리 실습 핸드북',
   base: '/withus-aiot-digital-twin-ops/',
   cleanUrls: true,
   themeConfig: {
     logo: '/favicon.svg',
     nav: [
       { text: '소개', link: '/' },
-      { text: '가이드', link: '/guide/project-overview' },
+      { text: '핸드북', link: '/handbook/digital-twin-factory-handbook' },
       { text: '아키텍처', link: '/architecture/system-overview' },
       { text: '협업', link: '/collaboration/publication-policy' }
     ],
     sidebar: [
+      {
+        text: '멘토링 핸드북',
+        items: [
+          { text: '디지털 트윈 팩토리 실습 핸드북', link: '/handbook/digital-twin-factory-handbook' }
+        ]
+      },
       {
         text: '프로젝트 가이드',
         items: [
@@ -44,7 +50,7 @@ export default defineConfig({
       provider: 'local'
     },
     footer: {
-      message: 'WITHUS AIoT Digital Twin Ops Public Reference',
+      message: 'WITHUS AIoT Digital Twin Ops Handbook',
       copyright: 'Copyright © 2026'
     }
   }
