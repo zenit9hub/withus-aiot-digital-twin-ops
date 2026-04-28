@@ -25,6 +25,21 @@ flowchart TB
 - MQTTX
 - 자신의 `uniq-user-id`
 
+## 실습 저장소
+
+공장 시뮬레이터는 별도 GitHub 저장소에서 관리합니다.
+
+- 저장소: [facility-environment-simulator](https://github.com/zenit9hub/facility-environment-simulator)
+- 먼저 저장소의 `README.md`를 읽고 실행 준비, 환경변수, 실행 명령, 테스트 명령을 확인합니다.
+- 핵심 실행 변수는 `MQTT_UNIQ_USER_ID`입니다.
+- 핸드북에서는 해당 저장소를 실행한 뒤 MQTTX와 Node-RED로 연결하는 실습 흐름을 다룹니다.
+
+```bash
+git clone https://github.com/zenit9hub/facility-environment-simulator.git
+cd facility-environment-simulator
+npm install
+```
+
 ## 시뮬레이터 역할
 
 시뮬레이터는 작은 공장 룸을 흉내 냅니다.
@@ -54,7 +69,7 @@ kiot/{uniq-user-id}/factory/room-01/actuator/aircon/control
 
 ## 따라하기
 
-1. 시뮬레이터 저장소를 clone합니다.
+1. 시뮬레이터 저장소를 clone하고 `README.md`를 확인합니다.
 2. `.env` 또는 실행 환경에서 `MQTT_UNIQ_USER_ID`를 자신의 ID로 설정합니다.
 3. MQTT 브로커가 `mqtt://broker.emqx.io:1883`인지 확인합니다.
 4. 시뮬레이터를 실행합니다.
