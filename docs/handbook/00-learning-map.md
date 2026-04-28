@@ -12,14 +12,13 @@ flowchart TB
   sim["실습 1. 공장 시뮬레이터"]
   hello["실습 2. MQTT와 Node-RED HelloWorld"]
   enrich["실습 3. 시트1 인리치먼트"]
-  review["실습 4. 듀얼 트랙 리뷰"]
-  rule["실습 5. 시트2 룰엔진"]
-  analyst["실습 6. 시트3 현장 분석가 AI"]
-  visual["실습 7. 시트5 시각화"]
-  manager["실습 8. 시트4 관리자 AI"]
-  ops["실습 9. 운영 권고 반영"]
+  rule["실습 4. 시트2 룰엔진"]
+  analyst["실습 5. 시트3 현장 분석가 AI"]
+  manager["실습 6. 시트4 관리자 AI"]
+  ops["실습 7. 운영 권고 반영"]
+  dashboard["실습 8. 시트5 Dashboard"]
 
-  start --> sim --> hello --> enrich --> review --> rule --> analyst --> visual --> manager --> ops
+  start --> sim --> hello --> enrich --> rule --> analyst --> manager --> ops --> dashboard
 ```
 
 ## 1시간 단위 운영안
@@ -28,12 +27,12 @@ flowchart TB
 | --- | --- | --- | --- |
 | 1시간차 | 실습 1 | 공장 환경 시뮬레이터 | MQTTX에서 raw 센서/status 확인 |
 | 2시간차 | 실습 2 | Node-RED 기초와 시트1 | HelloWorld 후 `state/current` 확인 |
-| 3시간차 | 실습 3 | 듀얼 트랙 | 3D 모델링 체험 또는 시트1/2 코드 분석 |
+| 3시간차 | 실습 3 | 시트1 인리치먼트 | `dt/factory`, `state/current` 생성 |
 | 4시간차 | 실습 4 | 시트2 룰엔진 | 35도 에어컨, 45도 셧다운 기준 확인 |
 | 5시간차 | 실습 5 | 시트3 현장 분석가 AI | mock 또는 LLM 의견 발행 확인 |
-| 6시간차 | 실습 6 | 2D/3D 시각화 | Dashboard와 3D 화면 차이 이해 |
-| 7시간차 | 실습 7 | 시트4 관리자 AI와 운영 권고 | `ops/recommendation` 흐름 확인 |
-| 8시간차 | 실습 8 | 룰엔진 권고 반영 | 권고를 룰엔진이 안전하게 반영 |
+| 6시간차 | 실습 6 | 시트4 관리자 AI | `ops/recommendation` 생성 |
+| 7시간차 | 실습 7 | 운영 권고 반영 | 권고를 룰엔진이 안전하게 반영 |
+| 8시간차 | 실습 8 | 시트5 Dashboard | 전체 상태와 판단 흐름 관제 |
 
 ## 실습 운영 방식
 
@@ -68,7 +67,7 @@ broker.emqx.io:1883
 - 각 단계에서 어떤 토픽이 입력이고 출력인지 설명할 수 있습니다.
 - `factory`와 `dt/factory`의 차이를 설명할 수 있습니다.
 - 룰엔진과 AI 에이전트의 역할 차이를 설명할 수 있습니다.
-- Dashboard와 3D 시각화가 각각 왜 필요한지 설명할 수 있습니다.
+- Dashboard가 운영 관제에서 어떤 역할을 하는지 설명할 수 있습니다.
 
 ## 다음 단계로 넘어가기 전 체크
 

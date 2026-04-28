@@ -7,7 +7,7 @@
 1. 공장 환경 시뮬레이터
 2. MQTT 메시지 브로커
 3. Node-RED 디지털 트윈 서버
-4. 2D/3D 시각화 및 AI 운영지원
+4. Dashboard 관제 및 AI 운영지원
 
 ## 데이터 흐름
 
@@ -20,7 +20,6 @@ flowchart TB
   sheet3["Sheet 3<br/>현장 분석가 AI"]
   sheet4["Sheet 4<br/>관리자 AI"]
   dash["Sheet 5<br/>2D Dashboard"]
-  meta["3D Metaverse Factory"]
 
   sim -->|"kiot/{user}/factory/#"| mqtt
   mqtt -->|"raw sensor/status"| sheet1
@@ -33,7 +32,6 @@ flowchart TB
   sheet2 --> dash
   sheet3 --> dash
   sheet4 --> dash
-  sheet1 --> meta
 ```
 
 ## 책임 분리
@@ -50,11 +48,10 @@ flowchart TB
   - 시트 4: 관리자 AI와 운영 권고
   - 시트 5: 2D Dashboard
 
-- 시각화 계층
+- Dashboard 관제 계층
   - 현재 상태 표시
   - 룰엔진 판단 표시
   - 운영 권고 표시
-  - 3D 공간 기반 이해 확장
 
 ## 핵심 설계 원칙
 

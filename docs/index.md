@@ -4,7 +4,7 @@ layout: home
 hero:
   name: WITHUS AIoT Digital Twin Ops
   text: 디지털 트윈 팩토리 실습 핸드북
-  tagline: 공장 시뮬레이터, MQTT, Node-RED, 룰엔진, AI 에이전트, 2D/3D 시각화를 하나의 실습 흐름으로 연결하는 대학생 멘토링용 공개 핸드북입니다.
+  tagline: 공장 시뮬레이터, MQTT, Node-RED, 룰엔진, AI 에이전트, Dashboard 관제를 하나의 실습 흐름으로 연결하는 대학생 멘토링용 공개 핸드북입니다.
   actions:
     - theme: brand
       text: 핸드북 바로 보기
@@ -15,7 +15,7 @@ hero:
 
 features:
   - title: 단계별 실습 흐름
-    details: 시뮬레이터 구동부터 Node-RED 시트 1~5, 대시보드, AI 에이전트 협업까지 순서대로 따라갈 수 있게 정리합니다.
+    details: 시뮬레이터 구동부터 Node-RED 시트 1~5, 룰엔진, AI 에이전트 협업, Dashboard 관제까지 순서대로 따라갈 수 있게 정리합니다.
   - title: MQTT 기반 모듈 분리
     details: factory 토픽과 dt/factory 토픽을 분리해 실세계 데이터와 디지털 트윈 해석 데이터를 명확히 구분합니다.
   - title: 룰엔진과 AI 협업

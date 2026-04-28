@@ -35,29 +35,12 @@ export default defineConfig({
     logo: '/favicon.svg',
     nav: [
       { text: '소개', link: '/' },
-      { text: '핸드북', link: '/handbook/' },
+      { text: '프로젝트', link: '/guide/project-overview' },
       { text: '아키텍처', link: '/architecture/system-overview' },
+      { text: '핸드북', link: '/handbook/' },
       { text: '협업', link: '/collaboration/publication-policy' }
     ],
     sidebar: [
-      {
-        text: '멘토링 핸드북',
-        items: [
-          { text: '핸드북 시작하기', link: '/handbook/' },
-          { text: '00. 학습 로드맵', link: '/handbook/00-learning-map' },
-          { text: '01. 공장 시뮬레이터', link: '/handbook/01-factory-simulator' },
-          { text: '02. MQTT와 Node-RED HelloWorld', link: '/handbook/02-mqtt-and-node-red-hello-world' },
-          { text: '03. 시트1 인리치먼트', link: '/handbook/03-sheet1-enrichment' },
-          { text: '04. 듀얼 트랙 리뷰', link: '/handbook/04-dual-track-review' },
-          { text: '05. 시트2 룰엔진', link: '/handbook/05-sheet2-rule-engine' },
-          { text: '06. 시트3 현장 분석가 AI', link: '/handbook/06-sheet3-field-analyst-agent' },
-          { text: '07. 시트5 시각화', link: '/handbook/07-sheet5-dashboard-and-3d-visualization' },
-          { text: '08. 시트4 관리자 AI', link: '/handbook/08-sheet4-manager-agent' },
-          { text: '09. 운영 권고 반영', link: '/handbook/09-rule-engine-with-ops-recommendation' },
-          { text: '90. 토픽과 Payload', link: '/handbook/90-topic-and-payload-reference' },
-          { text: '91. 문제 해결', link: '/handbook/91-troubleshooting' }
-        ]
-      },
       {
         text: '프로젝트 가이드',
         items: [
@@ -70,6 +53,23 @@ export default defineConfig({
           { text: '전체 시스템 개요', link: '/architecture/system-overview' },
           { text: '설비환경시뮬레이터', link: '/architecture/simulator' },
           { text: '엣지제어운영서버', link: '/architecture/edge-server' }
+        ]
+      },
+      {
+        text: '멘토링 핸드북',
+        items: [
+          { text: '핸드북 시작하기', link: '/handbook/' },
+          { text: '00. 학습 로드맵', link: '/handbook/00-learning-map' },
+          { text: '01. 공장 시뮬레이터', link: '/handbook/01-factory-simulator' },
+          { text: '02. MQTT와 Node-RED HelloWorld', link: '/handbook/02-mqtt-and-node-red-hello-world' },
+          { text: '03. 시트1 인리치먼트', link: '/handbook/03-sheet1-enrichment' },
+          { text: '04. 시트2 룰엔진', link: '/handbook/04-sheet2-rule-engine' },
+          { text: '05. 시트3 현장 분석가 AI', link: '/handbook/05-sheet3-field-analyst-agent' },
+          { text: '06. 시트4 관리자 AI', link: '/handbook/06-sheet4-manager-agent' },
+          { text: '07. 운영 권고 반영', link: '/handbook/07-rule-engine-with-ops-recommendation' },
+          { text: '08. 시트5 Dashboard', link: '/handbook/08-sheet5-dashboard' },
+          { text: '90. 토픽과 Payload', link: '/handbook/90-topic-and-payload-reference' },
+          { text: '91. 문제 해결', link: '/handbook/91-troubleshooting' }
         ]
       },
       {
