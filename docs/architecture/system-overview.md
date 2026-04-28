@@ -12,19 +12,28 @@
 ## 데이터 흐름
 
 ```mermaid
-flowchart LR
-  sim["Factory Sensor Simulator"] -->|"kiot/{user}/factory/#"| mqtt["MQTT Broker"]
-  mqtt -->|"raw sensor/status"| sheet1["Sheet 1<br/>수집 및 인리치먼트"]
-  sheet1 -->|"state/current"| sheet2["Sheet 2<br/>룰엔진"]
-  sheet2 -->|"actuator/control"| mqtt
-  sheet2 -->|"rule/result"| sheet3["Sheet 3<br/>현장 분석가 AI"]
-  sheet3 -->|"analysis/field-analyst"| sheet4["Sheet 4<br/>관리자 AI"]
+flowchart TB
+  sim["Factory Sensor Simulator"]
+  mqtt["MQTT Broker"]
+  sheet1["Sheet 1<br/>수집 및 인리치먼트"]
+  sheet2["Sheet 2<br/>룰엔진"]
+  sheet3["Sheet 3<br/>현장 분석가 AI"]
+  sheet4["Sheet 4<br/>관리자 AI"]
+  dash["Sheet 5<br/>2D Dashboard"]
+  meta["3D Metaverse Factory"]
+
+  sim -->|"kiot/{user}/factory/#"| mqtt
+  mqtt -->|"raw sensor/status"| sheet1
+  sheet1 -->|"state/current"| sheet2
+  sheet2 -->|"rule/result"| sheet3
+  sheet3 -->|"analysis/field-analyst"| sheet4
   sheet4 -->|"ops/recommendation"| sheet2
-  sheet1 --> dash["Sheet 5<br/>2D Dashboard"]
+  sheet2 -->|"actuator/control"| mqtt
+  sheet1 --> dash
   sheet2 --> dash
   sheet3 --> dash
   sheet4 --> dash
-  sheet1 --> meta["3D Metaverse Factory"]
+  sheet1 --> meta
 ```
 
 ## 책임 분리
@@ -56,6 +65,6 @@ flowchart LR
 
 ## 다음 문서
 
-- [디지털 트윈 팩토리 실습 핸드북](/handbook/digital-twin-factory-handbook)
+- [디지털 트윈 팩토리 실습 핸드북](/handbook/)
 - [설비환경시뮬레이터](/architecture/simulator)
 - [엣지제어운영서버](/architecture/edge-server)

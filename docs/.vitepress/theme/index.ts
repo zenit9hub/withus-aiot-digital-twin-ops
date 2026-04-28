@@ -4,6 +4,7 @@ import { useRoute } from 'vitepress'
 import './styles.css'
 
 let mermaid: any
+let zoomInstalled = false
 
 async function getMermaid() {
   if (!mermaid) {
@@ -34,12 +35,59 @@ async function renderMermaid() {
   await renderer.run({ nodes })
 }
 
+function openMermaidZoom(source: HTMLElement) {
+  const svg = source.querySelector('svg')
+  if (!svg) return
+
+  const overlay = document.createElement('div')
+  overlay.className = 'mermaid-zoom-overlay'
+  overlay.setAttribute('role', 'dialog')
+  overlay.setAttribute('aria-modal', 'true')
+  overlay.innerHTML = `
+    <button class="mermaid-zoom-close" type="button" aria-label="닫기">×</button>
+    <div class="mermaid-zoom-content">${svg.outerHTML}</div>
+  `
+
+  const close = () => {
+    overlay.remove()
+    document.removeEventListener('keydown', onKeydown)
+  }
+
+  const onKeydown = (event: KeyboardEvent) => {
+    if (event.key === 'Escape') close()
+  }
+
+  overlay.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement
+    if (target === overlay || target.classList.contains('mermaid-zoom-close')) close()
+  })
+
+  document.addEventListener('keydown', onKeydown)
+  document.body.appendChild(overlay)
+}
+
+function installMermaidZoom() {
+  if (zoomInstalled || typeof window === 'undefined') return
+
+  zoomInstalled = true
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement | null
+    const source = target?.closest?.('.mermaid') as HTMLElement | null
+    if (!source) return
+
+    openMermaidZoom(source)
+  })
+}
+
 export default {
   extends: DefaultTheme,
   setup() {
     const route = useRoute()
 
-    onMounted(renderMermaid)
+    onMounted(() => {
+      installMermaidZoom()
+      renderMermaid()
+    })
     watch(
       () => route.path,
       () => {

@@ -43,4 +43,4 @@
 
 ## 더 자세히 보기
 
-- [디지털 트윈 팩토리 실습 핸드북](/handbook/digital-twin-factory-handbook)
+- [디지털 트윈 팩토리 실습 핸드북](/handbook/)

@@ -35,7 +35,7 @@ export default defineConfig({
     logo: '/favicon.svg',
     nav: [
       { text: '소개', link: '/' },
-      { text: '핸드북', link: '/handbook/digital-twin-factory-handbook' },
+      { text: '핸드북', link: '/handbook/' },
       { text: '아키텍처', link: '/architecture/system-overview' },
       { text: '협업', link: '/collaboration/publication-policy' }
     ],
@@ -43,7 +43,19 @@ export default defineConfig({
       {
         text: '멘토링 핸드북',
         items: [
-          { text: '디지털 트윈 팩토리 실습 핸드북', link: '/handbook/digital-twin-factory-handbook' }
+          { text: '핸드북 시작하기', link: '/handbook/' },
+          { text: '00. 학습 로드맵', link: '/handbook/00-learning-map' },
+          { text: '01. 공장 시뮬레이터', link: '/handbook/01-factory-simulator' },
+          { text: '02. MQTT와 Node-RED HelloWorld', link: '/handbook/02-mqtt-and-node-red-hello-world' },
+          { text: '03. 시트1 인리치먼트', link: '/handbook/03-sheet1-enrichment' },
+          { text: '04. 듀얼 트랙 리뷰', link: '/handbook/04-dual-track-review' },
+          { text: '05. 시트2 룰엔진', link: '/handbook/05-sheet2-rule-engine' },
+          { text: '06. 시트3 현장 분석가 AI', link: '/handbook/06-sheet3-field-analyst-agent' },
+          { text: '07. 시트5 시각화', link: '/handbook/07-sheet5-dashboard-and-3d-visualization' },
+          { text: '08. 시트4 관리자 AI', link: '/handbook/08-sheet4-manager-agent' },
+          { text: '09. 운영 권고 반영', link: '/handbook/09-rule-engine-with-ops-recommendation' },
+          { text: '90. 토픽과 Payload', link: '/handbook/90-topic-and-payload-reference' },
+          { text: '91. 문제 해결', link: '/handbook/91-troubleshooting' }
         ]
       },
       {

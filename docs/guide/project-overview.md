@@ -28,7 +28,7 @@ AIoT 디지털 트윈 팩토리 운영지원 시스템
 
 ## 먼저 볼 문서
 
-- [디지털 트윈 팩토리 실습 핸드북](/handbook/digital-twin-factory-handbook)
+- [디지털 트윈 팩토리 실습 핸드북](/handbook/)
 - [전체 시스템 개요](/architecture/system-overview)
 - [설비환경시뮬레이터](/architecture/simulator)
 - [엣지제어운영서버](/architecture/edge-server)

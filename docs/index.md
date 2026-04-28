@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: 핸드북 바로 보기
-      link: /handbook/digital-twin-factory-handbook
+      link: /handbook/
     - theme: alt
       text: 전체 아키텍처 보기
       link: /architecture/system-overview
@@ -33,7 +33,7 @@ features:
 
 ## 현재 포함 범위
 
-- [디지털 트윈 팩토리 실습 핸드북](/handbook/digital-twin-factory-handbook)
+- [디지털 트윈 팩토리 실습 핸드북](/handbook/)
 - 프로젝트 개요
 - 전체 시스템 아키텍처
 - 설비환경시뮬레이터와 엣지제어운영서버 역할
@@ -41,4 +41,4 @@ features:
 
 ## 먼저 읽을 문서
 
-처음 보는 학생은 [디지털 트윈 팩토리 실습 핸드북](/handbook/digital-twin-factory-handbook)을 먼저 읽으면 됩니다. 이후 구현 범위를 더 넓히고 싶을 때 아키텍처 문서를 함께 보면 됩니다.
+처음 보는 학생은 [디지털 트윈 팩토리 실습 핸드북](/handbook/)을 먼저 읽으면 됩니다. 이후 구현 범위를 더 넓히고 싶을 때 아키텍처 문서를 함께 보면 됩니다.

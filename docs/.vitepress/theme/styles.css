@@ -1,12 +1,66 @@
 .mermaid {
+  position: relative;
   margin: 24px 0;
   padding: 20px;
   overflow-x: auto;
   border-radius: 12px;
   background: var(--vp-code-block-bg);
+  cursor: zoom-in;
+}
+
+.mermaid::after {
+  content: "클릭해서 크게 보기";
+  position: absolute;
+  right: 12px;
+  bottom: 8px;
+  color: var(--vp-c-text-2);
+  font-size: 12px;
 }
 
 .mermaid svg {
   max-width: 100%;
   height: auto;
+}
+
+.mermaid-zoom-overlay {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: rgb(0 0 0 / 72%);
+  cursor: zoom-out;
+}
+
+.mermaid-zoom-content {
+  width: min(1200px, 96vw);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 28px;
+  border-radius: 16px;
+  background: var(--vp-c-bg);
+  box-shadow: 0 24px 80px rgb(0 0 0 / 35%);
+}
+
+.mermaid-zoom-content svg {
+  width: max-content;
+  min-width: 100%;
+  height: auto;
+}
+
+.mermaid-zoom-close {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  color: white;
+  background: rgb(255 255 255 / 18%);
+  cursor: pointer;
+  font-size: 28px;
+  line-height: 1;
 }
