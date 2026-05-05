@@ -26,6 +26,8 @@
 - GitHub Pages는 repository 하위 경로인 `/withus-aiot-digital-twin-ops/`를 사용합니다.
 - Cloudflare Workers/Pages와 커스텀 도메인은 루트 경로인 `/`를 사용합니다.
 - VitePress `base`는 `VITEPRESS_BASE` 환경변수를 우선 사용하고, GitHub Actions 환경에서는 repository명을 기준으로 자동 결정합니다.
+- 검색엔진 기준 canonical 도메인은 `https://dt.lab.rezen.dev`입니다.
+- GitHub Pages 빌드는 canonical 도메인으로 이동시키고, `noindex,follow`를 선언합니다.
 - Cloudflare 배포는 기본 빌드 명령 `npm run docs:build`와 출력 폴더 `docs/.vitepress/dist`를 사용합니다.
 
 ## 원문 정책 문서

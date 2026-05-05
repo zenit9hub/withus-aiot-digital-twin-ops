@@ -1,5 +1,9 @@
 import { defineConfig } from 'vitepress'
 
+const githubRepository = 'zenit9hub/withus-aiot-digital-twin-ops'
+const githubPagesBase = '/withus-aiot-digital-twin-ops/'
+const defaultCanonicalOrigin = 'https://dt.lab.rezen.dev'
+
 function normalizeBase(value: string): string {
   const trimmed = value.trim()
 
@@ -12,19 +16,49 @@ function normalizeBase(value: string): string {
   return withLeadingSlash.endsWith('/') ? withLeadingSlash : `${withLeadingSlash}/`
 }
 
+function normalizeOrigin(value: string): string {
+  return value.trim().replace(/\/+$/, '')
+}
+
+function isGitHubPagesBuild(): boolean {
+  return process.env.GITHUB_ACTIONS === 'true' && process.env.GITHUB_REPOSITORY === githubRepository
+}
+
 function resolveBase(): string {
   if (process.env.VITEPRESS_BASE) {
     return normalizeBase(process.env.VITEPRESS_BASE)
   }
 
-  if (
-    process.env.GITHUB_ACTIONS === 'true' &&
-    process.env.GITHUB_REPOSITORY === 'zenit9hub/withus-aiot-digital-twin-ops'
-  ) {
-    return '/withus-aiot-digital-twin-ops/'
+  if (isGitHubPagesBuild()) {
+    return githubPagesBase
   }
 
   return '/'
+}
+
+function resolveCanonicalOrigin(): string {
+  return normalizeOrigin(process.env.VITEPRESS_CANONICAL_ORIGIN ?? defaultCanonicalOrigin)
+}
+
+function shouldRedirectToCanonical(): boolean {
+  if (process.env.VITEPRESS_REDIRECT_TO_CANONICAL) {
+    return process.env.VITEPRESS_REDIRECT_TO_CANONICAL === 'true'
+  }
+
+  return isGitHubPagesBuild()
+}
+
+function pageToCanonicalPath(page: string): string {
+  const withoutExtension = page.replace(/\.md$/, '')
+  const cleanPath = withoutExtension.replace(/(^|\/)index$/, '$1')
+
+  if (cleanPath === '') {
+    return '/'
+  }
+
+  const path = cleanPath.startsWith('/') ? cleanPath : `/${cleanPath}`
+
+  return path.endsWith('/') ? path : path
 }
 
 function escapeHtml(value: string): string {
@@ -35,6 +69,8 @@ function escapeHtml(value: string): string {
 }
 
 const siteBase = resolveBase()
+const canonicalOrigin = resolveCanonicalOrigin()
+const redirectToCanonical = shouldRedirectToCanonical()
 
 export default defineConfig({
   lang: 'ko-KR',
@@ -42,6 +78,41 @@ export default defineConfig({
   description: '대학생 멘토링을 위한 AIoT 디지털 트윈 팩토리 실습 핸드북',
   base: siteBase,
   cleanUrls: true,
+  sitemap: {
+    hostname: canonicalOrigin
+  },
+  head: [
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { name: 'twitter:card', content: 'summary' }]
+  ],
+  transformHead({ page, title, description }) {
+    const canonicalUrl = `${canonicalOrigin}${pageToCanonicalPath(page)}`
+    const head = [
+      ['link', { rel: 'canonical', href: canonicalUrl }],
+      ['meta', { property: 'og:url', content: canonicalUrl }],
+      ['meta', { property: 'og:title', content: title }],
+      ['meta', { property: 'og:description', content: description }]
+    ]
+
+    if (redirectToCanonical) {
+      head.push(
+        ['meta', { name: 'robots', content: 'noindex,follow' }],
+        ['meta', { 'http-equiv': 'refresh', content: `0;url=${canonicalUrl}` }],
+        [
+          'script',
+          {},
+          `(() => {
+  const canonicalUrl = ${JSON.stringify(canonicalUrl)}
+  if (window.location.href !== canonicalUrl) {
+    window.location.replace(canonicalUrl + window.location.search + window.location.hash)
+  }
+})()`
+        ]
+      )
+    }
+
+    return head
+  },
   markdown: {
     config(md) {
       const defaultFence = md.renderer.rules.fence
