@@ -1,5 +1,32 @@
 import { defineConfig } from 'vitepress'
 
+function normalizeBase(value: string): string {
+  const trimmed = value.trim()
+
+  if (trimmed === '' || trimmed === '/') {
+    return '/'
+  }
+
+  const withLeadingSlash = trimmed.startsWith('/') ? trimmed : `/${trimmed}`
+
+  return withLeadingSlash.endsWith('/') ? withLeadingSlash : `${withLeadingSlash}/`
+}
+
+function resolveBase(): string {
+  if (process.env.VITEPRESS_BASE) {
+    return normalizeBase(process.env.VITEPRESS_BASE)
+  }
+
+  if (
+    process.env.GITHUB_ACTIONS === 'true' &&
+    process.env.GITHUB_REPOSITORY === 'zenit9hub/withus-aiot-digital-twin-ops'
+  ) {
+    return '/withus-aiot-digital-twin-ops/'
+  }
+
+  return '/'
+}
+
 function escapeHtml(value: string): string {
   return value
     .replace(/&/g, '&amp;')
@@ -7,11 +34,13 @@ function escapeHtml(value: string): string {
     .replace(/>/g, '&gt;')
 }
 
+const siteBase = resolveBase()
+
 export default defineConfig({
   lang: 'ko-KR',
   title: 'WITHUS AIoT Digital Twin Ops Handbook',
   description: '대학생 멘토링을 위한 AIoT 디지털 트윈 팩토리 실습 핸드북',
-  base: '/withus-aiot-digital-twin-ops/',
+  base: siteBase,
   cleanUrls: true,
   markdown: {
     config(md) {
