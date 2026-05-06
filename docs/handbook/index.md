@@ -37,15 +37,15 @@ Mermaid 다이어그램은 화면 폭 문제를 줄이기 위해 기본적으로
 
 | 순서 | 문서 | 핵심 결과 |
 | --- | --- | --- |
-| 0 | [학습 로드맵](./00-learning-map) | 전체 실습 순서 이해 |
-| 1 | [공장 시뮬레이터](./01-factory-simulator) | raw MQTT 토픽 발행 확인 |
-| 2 | [MQTT와 Node-RED HelloWorld](./02-mqtt-and-node-red-hello-world) | Node-RED 첫 메시지 발행/구독 |
-| 3 | [시트1 인리치먼트](./03-sheet1-enrichment) | `dt/factory`, `state/current` 생성 |
-| 4 | [시트2 룰엔진](./04-sheet2-rule-engine) | 에어컨 제어와 셧다운 기준 확인 |
-| 5 | [시트3 현장 분석가 AI](./05-sheet3-field-analyst-agent) | mock 또는 LLM 기반 현장 의견 생성 |
-| 6 | [시트4 관리자 AI](./06-sheet4-manager-agent) | 운영 권고 메시지 생성 |
-| 7 | [운영 권고 반영](./07-rule-engine-with-ops-recommendation) | 룰엔진이 권고를 안전하게 반영 |
-| 8 | [시트5 Dashboard](./08-sheet5-dashboard) | 전체 상태와 판단 흐름 관제 |
+| 0 | [학습 로드맵](00-learning-map.md) | 전체 실습 순서 이해 |
+| 1 | [공장 시뮬레이터](01-factory-simulator.md) | raw MQTT 토픽 발행 확인 |
+| 2 | [MQTT와 Node-RED HelloWorld](02-mqtt-and-node-red-hello-world.md) | Node-RED 첫 메시지 발행/구독 |
+| 3 | [시트1 인리치먼트](03-sheet1-enrichment.md) | `dt/factory`, `state/current` 생성 |
+| 4 | [시트2 룰엔진](04-sheet2-rule-engine.md) | 에어컨 제어와 셧다운 기준 확인 |
+| 5 | [시트3 현장 분석가 AI](05-sheet3-field-analyst-agent.md) | mock 또는 LLM 기반 현장 의견 생성 |
+| 6 | [시트4 관리자 AI](06-sheet4-manager-agent.md) | 운영 권고 메시지 생성 |
+| 7 | [운영 권고 반영](07-rule-engine-with-ops-recommendation.md) | 룰엔진이 권고를 안전하게 반영 |
+| 8 | [시트5 Dashboard](08-sheet5-dashboard.md) | 전체 상태와 판단 흐름 관제 |
 
 ## 먼저 기억할 원칙
 
@@ -59,5 +59,5 @@ Mermaid 다이어그램은 화면 폭 문제를 줄이기 위해 기본적으로
 
 ## 참고 문서
 
-- [토픽과 Payload 레퍼런스](./90-topic-and-payload-reference)
-- [문제 해결 체크리스트](./91-troubleshooting)
+- [토픽과 Payload 레퍼런스](90-topic-and-payload-reference.md)
+- [문제 해결 체크리스트](91-troubleshooting.md)
